@@ -199,6 +199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _seeker: {fileID: 7916026008313588216}
   _rigidbody2D: {fileID: 5302510765560605763}
+  _skeleton: {fileID: 7916026007745464652}
+  _lookAroundAnimation: {fileID: 11400000, guid: 8d2bc275a6e154e4ba499b2efd5282fb, type: 2}
+  _walk: {fileID: 11400000, guid: 45d1fefa1bc3848bba15794a2ce8ff4b, type: 2}
   _speed: 500
   _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &5302510765560605763

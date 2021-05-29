@@ -4,16 +4,23 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using Pathfinding;
+using Spine.Unity;
 using UnityEngine;
 
 public class LibrarianController : MonoBehaviour {
     [SerializeField] private Path _path;
     [SerializeField] private Seeker _seeker;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    
+    [SerializeField] private SkeletonAnimation _skeleton;
+    [SerializeField] private AnimationReferenceAsset _lookAroundAnimation;
+    [SerializeField] private AnimationReferenceAsset _walk;
+    
     //[SerializeField] private Transform _target;
     [SerializeField] private float _speed = 1.0f;
 
-    public Vector3 _targetPosition;
+    private Vector3 _targetPosition;
+    private int targetWaypointIndex = 1;
 
     public void SetTargetPosition(Vector3 targetPos) => _targetPosition = targetPos;
 
@@ -23,10 +30,14 @@ public class LibrarianController : MonoBehaviour {
         GetPath().Forget();
         UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ => {
             if (_path != null && !_path.error) {
-                if (_path.vectorPath.Count > 1) {
-                    var target = _path.vectorPath[1];
+                if (targetWaypointIndex < _path.vectorPath.Count) {
+                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation) {
+                        _skeleton.AnimationState.SetAnimation(0, _walk.Animation, true);
+                    }
+                    var target = _path.vectorPath[targetWaypointIndex];
                     var distance = target - transform.position;
                     if (distance.sqrMagnitude <= 0.1f) {
+                        targetWaypointIndex++;
                         return;
                     }
                     
@@ -44,7 +55,9 @@ public class LibrarianController : MonoBehaviour {
                     }
                 }
                 else {
-                    GetPath().Forget();
+                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundAnimation.Animation) {
+                        _skeleton.AnimationState.SetAnimation(0, _lookAroundAnimation.Animation, true);
+                    }
                 }
             }
         }, this.GetCancellationTokenOnDestroy());
@@ -52,6 +65,8 @@ public class LibrarianController : MonoBehaviour {
 
     private async UniTaskVoid GetPath() {
         _path = await GetPathAsync();
+        targetWaypointIndex = 1;
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         GetPath().Forget();
     }
 
