@@ -1,15 +1,23 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField] private SoundArea _runningAreaPrefab;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed = 1.0f;
-    
+    private float _instantiateCooldown = 0;
     private void Update() {
         var isMoving = false;
         var speedMultiplier = 1.0f;
         var direction = Vector2.zero;
+        _instantiateCooldown -= Time.deltaTime;
+        
         if (Input.GetKey(KeyCode.LeftShift)) {
             speedMultiplier = 2.0f;
+            if (_instantiateCooldown <= 0) {
+                Instantiate(_runningAreaPrefab, transform.position, quaternion.identity);
+                _instantiateCooldown = 1.0f;
+            }
         }
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {

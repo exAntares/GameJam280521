@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe8ae94a06664df6b38efc5d6db59bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _runningAreaPrefab: {fileID: 1130222405509127280, guid: 09bfaf7a37bc44baeb4397fbf613615b, type: 3}
   _rigidbody2D: {fileID: 1802692937244865808}
   _speed: 500
 --- !u!58 &8876092450322933278

@@ -19,6 +19,7 @@ public class LibrarianController : MonoBehaviour {
     [SerializeField] private AnimationReferenceAsset _lookAroundEndAnimation;
     [SerializeField] private AnimationReferenceAsset _walk;
     [SerializeField] private GlobalFloat _hunting;
+    [SerializeField] private float _speedMultiplierHunting = 1.5f;
     
     [SerializeField] private float _huntingDiminishing = 0.5f;
     [SerializeField] private float _speed = 1.0f;
@@ -27,18 +28,26 @@ public class LibrarianController : MonoBehaviour {
     private int targetWaypointIndex = 1;
     private Transform _targetPlayer;
     private Transform _targetSound;
+    private Transform _player;
 
     public void SetTargetPosition(Vector3 targetPos) => _targetPosition = targetPos;
 
     // Start is called before the first frame update
     private void Start() {
+        _player = FindObjectOfType<PlayerController>().transform;
         _targetPosition = transform.position;
         GetPath().Forget();
         UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ => {
+            var speedMultipler = 1.0f;
             _hunting.Value = Mathf.Clamp01(_hunting.Value - (Time.deltaTime * _huntingDiminishing));
             if (_hunting.Value <= 0.5f) {
                 _targetPlayer = null;
             }
+
+            if (_targetPlayer != null) {
+                speedMultipler = _speedMultiplierHunting;
+            }
+            
             if (_path != null && !_path.error) {
                 if (targetWaypointIndex < _path.vectorPath.Count) {
                     var target = _path.vectorPath[targetWaypointIndex];
@@ -53,7 +62,7 @@ public class LibrarianController : MonoBehaviour {
                         _skeleton.AnimationState.AddAnimation(0, _walk.Animation, true, _lookAroundEndAnimation.Animation.Duration);
                     }
                     var directionNormalized = distance.normalized;
-                    var force = directionNormalized * (_speed * Time.deltaTime);
+                    var force = directionNormalized * (_speed * speedMultipler * Time.deltaTime);
                     if (force.magnitude > 1) {
                         if (force.x > 0) {
                             transform.localScale = Vector3.one;
@@ -106,6 +115,11 @@ public class LibrarianController : MonoBehaviour {
 
     public void SetTarget(Transform target) {
         _hunting.Value = Mathf.Clamp01(_hunting.Value + 0.1f);
-        _targetSound = target;
+        if (_hunting.Value > 0.5f) {
+            _targetPlayer = _player;
+        }
+        else {
+            _targetSound = target;
+        }
     }
 }
