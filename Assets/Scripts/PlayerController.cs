@@ -41,7 +41,15 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (isMoving) {
-            _rigidbody2D.AddForce(direction * (_speed * speedMultiplier * Time.deltaTime));
+            var force = direction * (_speed * speedMultiplier * Time.deltaTime);
+            if (force.x > 0) {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (force.x < 0) {
+                transform.localScale = Vector3.one;
+            }
+            
+            _rigidbody2D.AddForce(force);
         }
     }
 }

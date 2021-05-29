@@ -325,7 +325,7 @@ MonoBehaviour:
   _hunting: {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
   _speedMultiplierHunting: 1.9
   _huntingDiminishing: 0.05
-  _speed: 500
+  _speed: 350
 --- !u!50 &5302510765560605763
 Rigidbody2D:
   serializedVersion: 4
