@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470115921453479684, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 470115921453479684, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 490970518070319098, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,15 +61,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 916378964074586796, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Name
-      value: Obstacle_Shelf0Back
+      value: Obstacle_ShelfBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3604549
       objectReference: {fileID: 0}
     - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Size.y
-      value: 0.6659035
+      value: 1.5797086
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0016309619
       objectReference: {fileID: 0}
     - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Offset.y
-      value: 0.014413923
+      value: 0.10860801
       objectReference: {fileID: 0}
     - target: {fileID: 7081550570489124581, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Sprite
