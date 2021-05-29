@@ -23,6 +23,8 @@ public class LibrarianController : MonoBehaviour {
 
     private Vector3 _targetPosition;
     private int targetWaypointIndex = 1;
+    private Transform _targetPlayer;
+    private Transform _soundTarget;
 
     public void SetTargetPosition(Vector3 targetPos) => _targetPosition = targetPos;
 
@@ -80,7 +82,18 @@ public class LibrarianController : MonoBehaviour {
             taskSource.TrySetResult(p);
         }
 
-        _seeker.StartPath(transform.position, _targetPosition, OnCalculatePath);
+        var targetPosition = _targetPosition;
+        if (_targetPlayer != null) {
+            targetPosition = _targetPlayer.position;
+        }
+        else if(_soundTarget != null) {
+            targetPosition = _soundTarget.position;
+        }
+        
+        _seeker.StartPath(transform.position, targetPosition, OnCalculatePath);
         return await taskSource.Task;
     }
+
+    public void SetPlayerTarget(Transform target) => _targetPlayer = target;
+    public void SetSoundTarget(Transform target) => _soundTarget = target;
 }
