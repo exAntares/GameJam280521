@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470115921453479684, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 470115921453479684, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 470115921453479684, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 490970518070319098, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 916378964074586796, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Name
-      value: Obstacle_ChairR
+      value: Obstacle_Chair01
       objectReference: {fileID: 0}
     - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Size.x
