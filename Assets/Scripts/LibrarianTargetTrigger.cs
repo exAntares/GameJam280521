@@ -7,18 +7,19 @@ public class LibrarianTargetTrigger : MonoBehaviour {
     [SerializeField] private string _otherTag;
     
     void Start() {
-        this.GetAsyncCollisionStay2DTrigger().ForEachAsync(OnCollisionStay2D);
-        this.GetAsyncCollisionExit2DTrigger().ForEachAsync(OnCollisionLeave2D);
+        this.GetAsyncTriggerStay2DTrigger()
+            .ForEachAsync(OnStay2D);
+        this.GetAsyncTriggerExit2DTrigger().ForEachAsync(OnLeave2D);
     }
 
-    private void OnCollisionStay2D(Collision2D obj) {
-        if (obj.otherCollider.CompareTag(_otherTag)) {
-            _librarianController.SetPlayerTarget(obj.otherCollider.transform);
+    private void OnStay2D(Collider2D obj) {
+        if (obj.CompareTag(_otherTag)) {
+            _librarianController.SetPlayerTarget(obj.transform);
         }
     }
     
-    private void OnCollisionLeave2D(Collision2D obj) {
-        if (obj.otherCollider.CompareTag(_otherTag)) {
+    private void OnLeave2D(Collider2D obj) {
+        if (obj.CompareTag(_otherTag)) {
             _librarianController.SetPlayerTarget(null);
         }
     }
