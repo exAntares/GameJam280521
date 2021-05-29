@@ -24,6 +24,13 @@ public class LibrarianController : MonoBehaviour {
                     var directionNormalized = direction.normalized;
                     var force = directionNormalized * (_speed * Time.deltaTime);
                     if (force.magnitude > 1) {
+                        if (force.x > 0) {
+                            transform.localScale = Vector3.one;
+                        }
+                        if (force.x < 0) {
+                            transform.localScale = new Vector3(-1, 1, 1);
+                        }
+                        
                         _rigidbody2D.AddForce(force);
                     }
                 }
