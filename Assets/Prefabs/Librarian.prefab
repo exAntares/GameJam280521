@@ -198,7 +198,7 @@ MonoBehaviour:
   _seeker: {fileID: 7916026008313588216}
   _rigidbody2D: {fileID: 5302510765560605763}
   _target: {fileID: 0}
-  _speed: 50
+  _speed: 500
 --- !u!50 &5302510765560605763
 Rigidbody2D:
   serializedVersion: 4
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
