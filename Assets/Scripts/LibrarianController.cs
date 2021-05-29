@@ -13,7 +13,9 @@ public class LibrarianController : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     
     [SerializeField] private SkeletonAnimation _skeleton;
-    [SerializeField] private AnimationReferenceAsset _lookAroundAnimation;
+    [SerializeField] private AnimationReferenceAsset _lookAroundStartAnimation;
+    [SerializeField] private AnimationReferenceAsset _lookAroundLoopAnimation;
+    [SerializeField] private AnimationReferenceAsset _lookAroundEndAnimation;
     [SerializeField] private AnimationReferenceAsset _walk;
     
     //[SerializeField] private Transform _target;
@@ -31,16 +33,17 @@ public class LibrarianController : MonoBehaviour {
         UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ => {
             if (_path != null && !_path.error) {
                 if (targetWaypointIndex < _path.vectorPath.Count) {
-                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation) {
-                        _skeleton.AnimationState.SetAnimation(0, _walk.Animation, true);
-                    }
                     var target = _path.vectorPath[targetWaypointIndex];
                     var distance = target - transform.position;
                     if (distance.sqrMagnitude <= 0.1f) {
                         targetWaypointIndex++;
                         return;
                     }
-                    
+
+                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundEndAnimation.Animation) {
+                        _skeleton.AnimationState.SetAnimation(0, _lookAroundEndAnimation.Animation, false);
+                        _skeleton.AnimationState.AddAnimation(0, _walk.Animation, true, _lookAroundEndAnimation.Animation.Duration);
+                    }
                     var directionNormalized = distance.normalized;
                     var force = directionNormalized * (_speed * Time.deltaTime);
                     if (force.magnitude > 1) {
@@ -55,8 +58,9 @@ public class LibrarianController : MonoBehaviour {
                     }
                 }
                 else {
-                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundAnimation.Animation) {
-                        _skeleton.AnimationState.SetAnimation(0, _lookAroundAnimation.Animation, true);
+                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundStartAnimation.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundLoopAnimation.Animation) {
+                        _skeleton.AnimationState.SetAnimation(0, _lookAroundStartAnimation.Animation, false);
+                        _skeleton.AnimationState.AddAnimation(0, _lookAroundLoopAnimation.Animation, true, _lookAroundStartAnimation.Animation.Duration);
                     }
                 }
             }

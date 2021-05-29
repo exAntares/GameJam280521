@@ -78,10 +78,11 @@ MonoBehaviour:
   _seeker: {fileID: 98354063791689495}
   _rigidbody2D: {fileID: 2670773924112976556}
   _skeleton: {fileID: 3180318958917425499}
-  _lookAroundAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
+  _lookAroundStartAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
+  _lookAroundLoopAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
+  _lookAroundEndAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
   _walk: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
   _speed: 500
-  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &2670773924112976556
 Rigidbody2D:
   serializedVersion: 4
