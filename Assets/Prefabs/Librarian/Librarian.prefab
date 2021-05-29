@@ -323,6 +323,7 @@ MonoBehaviour:
   _lookAroundEndAnimation: {fileID: 11400000, guid: 6338620c346bd4bfbbd74f5d307dd570, type: 2}
   _walk: {fileID: 11400000, guid: 45d1fefa1bc3848bba15794a2ce8ff4b, type: 2}
   _hunting: {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
+  _speedMultiplierHunting: 1.9
   _huntingDiminishing: 0.05
   _speed: 500
 --- !u!50 &5302510765560605763
