@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _librarianController: {fileID: 961440505351212903}
   _otherTag: Sound
+  _setAsPlayer: 0
 --- !u!1 &7916026007745464654
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +322,8 @@ MonoBehaviour:
   _lookAroundLoopAnimation: {fileID: 11400000, guid: f6b0a219a5e634bb594da8a87108550f, type: 2}
   _lookAroundEndAnimation: {fileID: 11400000, guid: 6338620c346bd4bfbbd74f5d307dd570, type: 2}
   _walk: {fileID: 11400000, guid: 45d1fefa1bc3848bba15794a2ce8ff4b, type: 2}
+  _hunting: {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
+  _huntingDiminishing: 0.01
   _speed: 500
 --- !u!50 &5302510765560605763
 Rigidbody2D:
@@ -466,3 +469,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _librarianController: {fileID: 961440505351212903}
   _otherTag: Player
+  _setAsPlayer: 1

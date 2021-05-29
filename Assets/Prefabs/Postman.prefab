@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 98354063791689488}
   - component: {fileID: 98354063791689495}
-  - component: {fileID: 7048567461849622920}
   - component: {fileID: 2670773924112976556}
   - component: {fileID: 7152284576554681414}
   m_Layer: 0
@@ -63,26 +62,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &7048567461849622920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98354063791689493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af81b2362dd14be58f51fbd319f0267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _seeker: {fileID: 98354063791689495}
-  _rigidbody2D: {fileID: 2670773924112976556}
-  _skeleton: {fileID: 3180318958917425499}
-  _lookAroundStartAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
-  _lookAroundLoopAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
-  _lookAroundEndAnimation: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
-  _walk: {fileID: 11400000, guid: 72045b3b4548e4a3e8297b94412bd417, type: 2}
-  _speed: 500
 --- !u!50 &2670773924112976556
 Rigidbody2D:
   serializedVersion: 4

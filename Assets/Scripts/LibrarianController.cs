@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
+using HalfBlind.ScriptableVariables;
 using Pathfinding;
 using Spine.Unity;
 using UnityEngine;
@@ -17,14 +18,15 @@ public class LibrarianController : MonoBehaviour {
     [SerializeField] private AnimationReferenceAsset _lookAroundLoopAnimation;
     [SerializeField] private AnimationReferenceAsset _lookAroundEndAnimation;
     [SerializeField] private AnimationReferenceAsset _walk;
+    [SerializeField] private GlobalFloat _hunting;
     
-    //[SerializeField] private Transform _target;
+    [SerializeField] private float _huntingDiminishing = 0.5f;
     [SerializeField] private float _speed = 1.0f;
 
     private Vector3 _targetPosition;
     private int targetWaypointIndex = 1;
     private Transform _targetPlayer;
-    private Transform _soundTarget;
+    private Transform _targetSound;
 
     public void SetTargetPosition(Vector3 targetPos) => _targetPosition = targetPos;
 
@@ -33,6 +35,10 @@ public class LibrarianController : MonoBehaviour {
         _targetPosition = transform.position;
         GetPath().Forget();
         UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ => {
+            _hunting.Value = Mathf.Clamp01(_hunting.Value - (Time.deltaTime * _huntingDiminishing));
+            if (_hunting.Value <= 0.5f) {
+                _targetPlayer = null;
+            }
             if (_path != null && !_path.error) {
                 if (targetWaypointIndex < _path.vectorPath.Count) {
                     var target = _path.vectorPath[targetWaypointIndex];
@@ -85,15 +91,21 @@ public class LibrarianController : MonoBehaviour {
         var targetPosition = _targetPosition;
         if (_targetPlayer != null) {
             targetPosition = _targetPlayer.position;
-        }
-        else if(_soundTarget != null) {
-            targetPosition = _soundTarget.position;
+        } else if (_targetSound != null) {
+            targetPosition = _targetSound.position;
         }
         
         _seeker.StartPath(transform.position, targetPosition, OnCalculatePath);
         return await taskSource.Task;
     }
 
-    public void SetPlayerTarget(Transform target) => _targetPlayer = target;
-    public void SetSoundTarget(Transform target) => _soundTarget = target;
+    public void SetPlayerTarget(Transform target) {
+        _hunting.Value = 1.0f;
+        _targetPlayer = target;
+    }
+
+    public void SetTarget(Transform target) {
+        _hunting.Value = Mathf.Clamp01(_hunting.Value + 0.1f);
+        _targetSound = target;
+    }
 }
