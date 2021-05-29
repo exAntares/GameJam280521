@@ -6,196 +6,203 @@ filter: Linear,Linear
 repeat: none
 armL
   rotate: false
-  xy: 972, 5
+  xy: 404, 7
   size: 132, 139
   orig: 132, 140
   offset: 0, 0
   index: -1
 armR
-  rotate: true
-  xy: 750, 12
+  rotate: false
+  xy: 538, 16
   size: 98, 130
   orig: 98, 132
   offset: 0, 1
   index: -1
 body
   rotate: false
-  xy: 2, 148
+  xy: 367, 148
   size: 539, 361
   orig: 539, 361
   offset: 0, 0
   index: -1
 chopstick1B
-  rotate: false
-  xy: 406, 87
+  rotate: true
+  xy: 638, 27
   size: 119, 59
   orig: 123, 64
   offset: 2, 2
   index: -1
 chopstick1F
   rotate: false
-  xy: 353, 4
+  xy: 2, 2
   size: 111, 73
   orig: 115, 77
   offset: 2, 2
   index: -1
 chopstick2B
-  rotate: false
-  xy: 527, 98
+  rotate: true
+  xy: 699, 42
   size: 104, 48
   orig: 109, 53
   offset: 3, 2
   index: -1
 chopstick2F
-  rotate: false
-  xy: 208, 10
+  rotate: true
+  xy: 353, 2
   size: 143, 49
   orig: 148, 53
   offset: 3, 2
   index: -1
 ear
   rotate: true
-  xy: 2, 61
+  xy: 908, 162
   size: 85, 218
   orig: 85, 218
   offset: 0, 0
   index: -1
 earring
   rotate: true
-  xy: 466, 2
+  xy: 999, 77
   size: 83, 80
   orig: 87, 85
   offset: 2, 2
   index: -1
 eye
-  rotate: true
-  xy: 2, 4
+  rotate: false
+  xy: 324, 82
   size: 7, 12
   orig: 12, 16
   offset: 2, 2
   index: -1
 eye_dark_circle
   rotate: true
-  xy: 936, 97
+  xy: 922, 10
   size: 47, 34
   orig: 53, 38
   offset: 3, 2
   index: -1
 eye_white
-  rotate: true
-  xy: 882, 13
+  rotate: false
+  xy: 178, 80
   size: 31, 65
   orig: 35, 69
   offset: 2, 2
   index: -1
 eyebrow
-  rotate: true
-  xy: 805, 168
+  rotate: false
+  xy: 742, 6
   size: 58, 34
   orig: 58, 34
   offset: 0, 0
   index: -1
 eyelash
-  rotate: false
-  xy: 884, 119
+  rotate: true
+  xy: 324, 96
   size: 49, 25
   orig: 51, 27
   offset: 1, 1
   index: -1
 eyelid
   rotate: true
-  xy: 882, 46
+  xy: 115, 4
   size: 71, 52
   orig: 71, 54
   offset: 0, 1
   index: -1
 eyelid2
   rotate: false
-  xy: 841, 174
+  xy: 802, 5
   size: 33, 52
   orig: 33, 52
   offset: 0, 0
   index: -1
 face
-  rotate: false
-  xy: 884, 146
+  rotate: true
+  xy: 178, 147
   size: 362, 187
   orig: 362, 187
   offset: 0, 0
   index: -1
 foot
   rotate: false
-  xy: 714, 112
+  xy: 837, 8
   size: 83, 49
   orig: 87, 55
   offset: 2, 4
   index: -1
 hairs
-  rotate: false
-  xy: 543, 335
+  rotate: true
+  xy: 2, 77
   size: 432, 174
   orig: 432, 174
   offset: 0, 0
   index: -1
 hairsB
-  rotate: false
-  xy: 543, 163
+  rotate: true
+  xy: 908, 249
   size: 260, 170
   orig: 260, 170
   offset: 0, 0
   index: -1
 handL
-  rotate: true
-  xy: 799, 119
-  size: 42, 83
+  rotate: false
+  xy: 749, 58
+  size: 46, 88
   orig: 46, 88
-  offset: 2, 3
+  offset: 0, 0
+  index: -1
+handL_shush
+  rotate: true
+  xy: 211, 81
+  size: 64, 111
+  orig: 64, 111
+  offset: 0, 0
   index: -1
 handR
-  rotate: true
-  xy: 633, 109
-  size: 52, 79
+  rotate: false
+  xy: 1081, 77
+  size: 57, 83
   orig: 57, 83
-  offset: 3, 2
+  offset: 0, 0
   index: -1
 leg2
   rotate: true
-  xy: 222, 63
+  xy: 638, 11
   size: 14, 102
   orig: 14, 102
   offset: 0, 0
   index: -1
 lips_DOWN
   rotate: false
-  xy: 548, 9
+  xy: 797, 59
   size: 200, 87
   orig: 200, 87
   offset: 0, 0
   index: -1
 lips_UP
   rotate: false
-  xy: 2, 13
+  xy: 958, 11
   size: 204, 46
   orig: 206, 47
   offset: 1, 1
   index: -1
 mouth
   rotate: false
-  xy: 222, 79
+  xy: 169, 8
   size: 182, 67
   orig: 182, 67
   offset: 0, 0
   index: -1
 necklace
-  rotate: false
-  xy: 805, 276
+  rotate: true
+  xy: 1080, 451
   size: 58, 57
   orig: 62, 61
   offset: 2, 2
   index: -1
 nose
-  rotate: true
-  xy: 805, 228
+  rotate: false
+  xy: 1080, 392
   size: 46, 57
   orig: 46, 59
   offset: 0, 1
