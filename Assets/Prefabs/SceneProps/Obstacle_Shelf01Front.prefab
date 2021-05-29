@@ -53,7 +53,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 916378964074586796, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
       propertyPath: m_Name
-      value: BaseObstacle
+      value: Obstacle_Shelf01Front
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4485002
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6597617
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.20832038
+      objectReference: {fileID: 0}
+    - target: {fileID: 994689220602527876, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.110541224
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 614e0612d7f6ed94e95a8ed801748872, type: 3}
