@@ -30,7 +30,6 @@ public class LibrarianController : MonoBehaviour {
 
     [SerializeField] private ScriptableGameEvent _onLose;
     [SerializeField] private ScriptableGameEvent _onWin;
-    [SerializeField] private GameObject _gameOverCanvasPrefab;
     [SerializeField] private GameObject _markerPrefab;
 
     private GameObject MarketInstance;
@@ -82,7 +81,6 @@ public class LibrarianController : MonoBehaviour {
                     Debug.Log("Player Lost!!!");
                     _hunting.Value = 0;
                     _onLose.SendEvent();
-                    Instantiate(_gameOverCanvasPrefab);
                     return;
                 }
             }

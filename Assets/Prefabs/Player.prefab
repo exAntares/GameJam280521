@@ -2451,6 +2451,7 @@ MonoBehaviour:
   _speed: 350
   _onLose: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
   _onWin: {fileID: 11400000, guid: c267bc75771d444b69d5d5b82b547776, type: 2}
+  _onPanicAttack: {fileID: 11400000, guid: d65728a80eddd40479a231b4a1e4f280, type: 2}
   _idleAnimationReferenceAsset: {fileID: 11400000, guid: d6f431c9582464eaea907ce93804dd60, type: 2}
   _walkAnimationReferenceAsset: {fileID: 11400000, guid: a3eee7d637278477db6bf96452c5709c, type: 2}
   _runAnimationReferenceAsset: {fileID: 11400000, guid: 14d15e70daa234b899c412c3d4a763b1, type: 2}

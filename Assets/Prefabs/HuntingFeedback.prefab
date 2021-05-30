@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 3636847623598428670}
   - component: {fileID: 1490632741443990506}
   - component: {fileID: 1817490042209686361}
+  - component: {fileID: 6571453686118356561}
   m_Layer: 0
   m_Name: HuntingFeedback
   m_TagString: Untagged
@@ -254,7 +255,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3636847623598428671}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.92, y: -3.41, z: -2.392092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -275,11 +276,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"HuntingGlobalFloat","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"DangerLevel01","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"DangerLevel02","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"collection":{"$content":[{"name":"HuntingGlobalFloat","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"DangerLevel01","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"DangerLevel02","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"LostUIPrefab","value":{"$content":3,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"DangerLevel03","value":{"$content":4,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
     - {fileID: 3636847624154975942}
     - {fileID: 3636847625174108841}
+    - {fileID: 2122531619753796016, guid: cfc4b3158edb54740912c94122db4795, type: 3}
+    - {fileID: 3636847623378272732}
 --- !u!114 &1817490042209686361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +299,19 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 630b087592943e6428c2b9626dd2ac91, type: 2}
+--- !u!114 &6571453686118356561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636847623598428671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b92a8c818674b2491968ef2e5384f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
 --- !u!1 &3636847623681406710
 GameObject:
   m_ObjectHideFlags: 0

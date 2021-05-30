@@ -9,19 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 503809483623707947, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
       propertyPath: m_Name
-      value: DoorBasePrefab_SideVariant
+      value: Door_Side01
       objectReference: {fileID: 0}
+    - target: {fileID: 1197574575263891313, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
+      propertyPath: _data._objectReferences.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1658020d4741f3f45a0a300e68eb40ec, type: 2}
     - target: {fileID: 2394160608130248119, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.843
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.287
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: 833a2d06383f0f8469cbaa990eef2fc2, type: 3}
       propertyPath: m_LocalPosition.z

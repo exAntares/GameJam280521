@@ -1,5 +1,8 @@
+using System;
 using HalfBlind.ScriptableVariables;
+using Spine;
 using Spine.Unity;
+using Spine.Unity.AttachmentTools;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -9,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _speed = 1.0f;
     [SerializeField] private ScriptableGameEvent _onLose;
     [SerializeField] private ScriptableGameEvent _onWin;
+    [SerializeField] private ScriptableGameEvent _onPanicAttack;
     [SerializeField] private AnimationReferenceAsset _idleAnimationReferenceAsset;
     [SerializeField] private AnimationReferenceAsset _walkAnimationReferenceAsset;
     [SerializeField] private AnimationReferenceAsset _runAnimationReferenceAsset;
@@ -16,10 +20,22 @@ public class PlayerController : MonoBehaviour {
 
     private float _instantiateCooldown = 0;
     private bool _canMove = true;
+    private float _panicAttackDuration = 0;
 
     private void Awake() {
         _onLose.AddListener(OnLose);
         _onWin.AddListener(OnWin);
+        _onPanicAttack.AddListener(OnPanicAttack);
+    }
+
+    private void OnDestroy() {
+        _onLose.RemoveListener(OnLose);
+        _onWin.RemoveListener(OnWin);
+        _onPanicAttack.RemoveListener(OnPanicAttack);        
+    }
+
+    private void OnPanicAttack() {
+        _panicAttackDuration = 5.0f;
     }
 
     private void OnWin() {
@@ -34,7 +50,10 @@ public class PlayerController : MonoBehaviour {
         if (!_canMove) {
             return;
         }
-        
+
+        _panicAttackDuration -= Time.deltaTime;
+        var isInPanic = _panicAttackDuration > 0;
+        _skeleton.skeleton.SetSkin(isInPanic ? "panic_attack" : "normal");
         var isMoving = false;
         var speedMultiplier = 1.0f;
         var direction = Vector2.zero;
@@ -49,22 +68,44 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            direction += Vector2.up;
+            if (isInPanic) {
+                direction += Vector2.down;
+            }
+            else {
+                direction += Vector2.up;
+            }
             isMoving = true;
         }
 
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            direction += Vector2.down;
+            if (isInPanic) {
+                direction += Vector2.up;
+            }
+            else {
+                direction += Vector2.down;
+            }
             isMoving = true;
         }
 
         if (Input.GetKey(KeyCode.A)  || Input.GetKey(KeyCode.LeftArrow)) {
-            direction += Vector2.left;
+            if (isInPanic) {
+                direction += Vector2.right;
+            }
+            else {
+                direction += Vector2.left;
+            }
+            
             isMoving = true;
         }
 
         if (Input.GetKey(KeyCode.D)  || Input.GetKey(KeyCode.RightArrow)) {
-            direction += Vector2.right;
+            if (isInPanic) {
+                direction += Vector2.left;
+            }
+            else {
+                direction += Vector2.right;
+            }
+
             isMoving = true;
         }
 
