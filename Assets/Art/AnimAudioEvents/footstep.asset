@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _variations:
   - {fileID: 8300000, guid: 61702fa4be5973048afce15f86667c73, type: 3}
+  - {fileID: 8300000, guid: 5239bd20c37ffd54e9cd7e2afe8727fb, type: 3}
   _volume: 1
-  _pitchMinMax: {x: 0.6, y: 1}
+  _pitchMinMax: {x: 0.8, y: 1.1}
   _spatialBlend: 1
   _group: {fileID: 0}
   _whenMultipleSameSound: 0
