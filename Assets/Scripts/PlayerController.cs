@@ -1,10 +1,9 @@
-using System;
 using HalfBlind.ScriptableVariables;
 using Spine;
 using Spine.Unity;
-using Spine.Unity.AttachmentTools;
 using Unity.Mathematics;
 using UnityEngine;
+using Event = Spine.Event;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private SoundArea _runningAreaPrefab;
@@ -23,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private float _panicAttackDuration = 0;
 
     private void Awake() {
+        _skeleton.AnimationState.Event += HandleEvent;
         _onLose.AddListener(OnLose);
         _onWin.AddListener(OnWin);
         _onPanicAttack.AddListener(OnPanicAttack);
@@ -46,6 +46,15 @@ public class PlayerController : MonoBehaviour {
         _canMove = false;
     }
 
+    private void HandleEvent(TrackEntry trackEntry, Event e) {
+        if (string.CompareOrdinal(e.Data.Name, "sound") != 0) {
+            return;
+        }
+        if (!AudioContainer.Instance.PlayAudio(e.String, transform.position)) {
+            Debug.LogWarning($"Failed to play sound on track {trackEntry.Animation.Name} '{e.String}'");
+        }
+    }
+    
     private void Update() {
         if (!_canMove) {
             return;

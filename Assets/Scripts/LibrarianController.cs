@@ -8,7 +8,6 @@ using Spine.Unity;
 using Unity.Mathematics;
 using UnityEngine;
 using Event = Spine.Event;
-using Object = UnityEngine.Object;
 
 public class LibrarianController : MonoBehaviour {
     [SerializeField] private Path _path;
@@ -76,7 +75,7 @@ public class LibrarianController : MonoBehaviour {
             if (_targetPlayer != null) {
                 speedMultipler = _speedMultiplierHunting;
                 var distanceToPlayer = Vector3.Distance(transform.position, _targetPlayer.position);
-                if (distanceToPlayer <= 0.6f) {
+                if (distanceToPlayer <= 1.0f) {
                     _skeleton.AnimationState.SetAnimation(0, _lookAroundLoopAnimation.Animation, true);
                     Debug.Log("Player Lost!!!");
                     _hunting.Value = 0;
