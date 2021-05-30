@@ -20,8 +20,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 15
+  MinDistance: 2.99
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -325,9 +325,9 @@ PlayableDirector:
     value: {fileID: 1595561075733122258}
   - key: {fileID: -8688767430321824280, guid: cf3b4b7b79d0ee1459ed5c2b49f6eeea, type: 2}
     value: {fileID: 1595561075733122258}
-  - key: {fileID: 8460300854568595683, guid: cf3b4b7b79d0ee1459ed5c2b49f6eeea, type: 2}
-    value: {fileID: 6677205243057484699}
   - key: {fileID: -7515229514641160602, guid: cf3b4b7b79d0ee1459ed5c2b49f6eeea, type: 2}
+    value: {fileID: 6677205243057484699}
+  - key: {fileID: 5059846765807288564, guid: cf3b4b7b79d0ee1459ed5c2b49f6eeea, type: 2}
     value: {fileID: 6677205243057484699}
   m_ExposedReferences:
     m_References: []
@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 98354063791689488, guid: 6f1218709b38343338a3e7d88c7090e9, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1
+      value: 0.93801403
       objectReference: {fileID: 0}
     - target: {fileID: 98354063791689488, guid: 6f1218709b38343338a3e7d88c7090e9, type: 3}
       propertyPath: m_LocalScale.y
@@ -406,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 98354063791689488, guid: 6f1218709b38343338a3e7d88c7090e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.08427
+      value: 11.413544
       objectReference: {fileID: 0}
     - target: {fileID: 98354063791689488, guid: 6f1218709b38343338a3e7d88c7090e9, type: 3}
       propertyPath: m_LocalPosition.y

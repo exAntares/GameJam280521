@@ -19,6 +19,8 @@ MonoBehaviour:
   _spatialBlend: 1
   _group: {fileID: 0}
   _whenMultipleSameSound: 2
+  _minDistance: 5
+  _maxDistance: 50
   _variationsProvider:
     id: 0
   references:
