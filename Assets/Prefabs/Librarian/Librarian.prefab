@@ -577,6 +577,8 @@ MonoBehaviour:
   _lookAroundStartAnimation: {fileID: 11400000, guid: fab3c20bbd2c94d4d959c6af13339c42, type: 2}
   _lookAroundLoopAnimation: {fileID: 11400000, guid: f6b0a219a5e634bb594da8a87108550f, type: 2}
   _lookAroundEndAnimation: {fileID: 11400000, guid: 6338620c346bd4bfbbd74f5d307dd570, type: 2}
+  _huntStartAnimation: {fileID: 11400000, guid: 65301cf8183264fd6b4e391a3d156885, type: 2}
+  _huntloopAnimation: {fileID: 11400000, guid: a361da09b5510425cb2a63fb0b0c3d7c, type: 2}
   _walk: {fileID: 11400000, guid: 45d1fefa1bc3848bba15794a2ce8ff4b, type: 2}
   _hunting: {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
   _speedMultiplierHunting: 1.9
@@ -585,6 +587,7 @@ MonoBehaviour:
   _onLose: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
   _onWin: {fileID: 11400000, guid: c267bc75771d444b69d5d5b82b547776, type: 2}
   _gameOverCanvasPrefab: {fileID: 2122531619753796016, guid: cfc4b3158edb54740912c94122db4795, type: 3}
+  _markerPrefab: {fileID: 3104130509292714819, guid: 24675d5adbc204c209e6de4067f9e2ba, type: 3}
 --- !u!50 &5302510765560605763
 Rigidbody2D:
   serializedVersion: 4

@@ -5,6 +5,7 @@ using HalfBlind.ScriptableVariables;
 using Pathfinding;
 using Spine;
 using Spine.Unity;
+using Unity.Mathematics;
 using UnityEngine;
 using Event = Spine.Event;
 using Object = UnityEngine.Object;
@@ -18,6 +19,8 @@ public class LibrarianController : MonoBehaviour {
     [SerializeField] private AnimationReferenceAsset _lookAroundStartAnimation;
     [SerializeField] private AnimationReferenceAsset _lookAroundLoopAnimation;
     [SerializeField] private AnimationReferenceAsset _lookAroundEndAnimation;
+    [SerializeField] private AnimationReferenceAsset _huntStartAnimation;
+    [SerializeField] private AnimationReferenceAsset _huntloopAnimation;
     [SerializeField] private AnimationReferenceAsset _walk;
     [SerializeField] private GlobalFloat _hunting;
     [SerializeField] private float _speedMultiplierHunting = 1.5f;
@@ -28,13 +31,15 @@ public class LibrarianController : MonoBehaviour {
     [SerializeField] private ScriptableGameEvent _onLose;
     [SerializeField] private ScriptableGameEvent _onWin;
     [SerializeField] private GameObject _gameOverCanvasPrefab;
-    
+    [SerializeField] private GameObject _markerPrefab;
+
+    private GameObject MarketInstance;
     private Vector3 _targetPosition;
     private int targetWaypointIndex = 1;
     private Transform _targetPlayer;
-    private Transform _targetSound;
+    private Vector3? _targetSound;
     private Transform _player;
-    private bool _canMove = true;
+    private bool _gameEnded = false;
 
     private void Awake() {
         _onLose.AddListener(OnLose);
@@ -42,11 +47,11 @@ public class LibrarianController : MonoBehaviour {
     }
     
     private void OnWin() {
-        _canMove = false;
+        _gameEnded = true;
     }
 
     private void OnLose() {
-        _canMove = false;
+        _gameEnded = true;
     }
     
     public void SetTargetPosition(Vector3 targetPos) => _targetPosition = targetPos;
@@ -59,7 +64,7 @@ public class LibrarianController : MonoBehaviour {
         _targetPosition = transform.position;
         GetPath().Forget();
         UniTaskAsyncEnumerable.EveryUpdate().ForEachAsync(_ => {
-            if (!_canMove) {
+            if (_gameEnded) {
                 return;
             }
             
@@ -71,9 +76,11 @@ public class LibrarianController : MonoBehaviour {
 
             if (_targetPlayer != null) {
                 speedMultipler = _speedMultiplierHunting;
-                if (Vector3.Distance(transform.position, _targetPlayer.position) <= 0.5f) {
+                var distanceToPlayer = Vector3.Distance(transform.position, _targetPlayer.position);
+                if (distanceToPlayer <= 0.6f) {
                     _skeleton.AnimationState.SetAnimation(0, _lookAroundLoopAnimation.Animation, true);
                     Debug.Log("Player Lost!!!");
+                    _hunting.Value = 0;
                     _onLose.SendEvent();
                     Instantiate(_gameOverCanvasPrefab);
                     return;
@@ -83,16 +90,21 @@ public class LibrarianController : MonoBehaviour {
             if (_path != null && !_path.error) {
                 if (targetWaypointIndex < _path.vectorPath.Count) {
                     var target = _path.vectorPath[targetWaypointIndex];
-                    var distance = target - transform.position;
-                    if (distance.sqrMagnitude <= 0.1f) {
+                    var position = transform.position;
+                    var distance = target - position;
+                    var distanceToTarget = Vector3.Distance(position, target);
+                    if (distanceToTarget <= 0.1f) {
                         targetWaypointIndex++;
                         return;
                     }
 
-                    if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundEndAnimation.Animation) {
-                        _skeleton.AnimationState.SetAnimation(0, _lookAroundEndAnimation.Animation, false);
-                        _skeleton.AnimationState.AddAnimation(0, _walk.Animation, true, 0.0f);
+                    if (_targetPlayer != null) {
+                        PlayHuntAnimation();
                     }
+                    else {
+                        PlayWalkAnimation();
+                    }
+                    
                     var directionNormalized = distance.normalized;
                     var force = directionNormalized * (_speed * speedMultipler * Time.deltaTime);
                     if (force.magnitude > 1) {
@@ -107,6 +119,10 @@ public class LibrarianController : MonoBehaviour {
                     }
                 }
                 else {
+                    _targetSound = null;
+                    if (MarketInstance != null) {
+                        Destroy(MarketInstance);
+                    }
                     if (_skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundStartAnimation.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundLoopAnimation.Animation) {
                         _skeleton.AnimationState.SetAnimation(0, _lookAroundStartAnimation.Animation, false);
                         _skeleton.AnimationState.AddAnimation(0, _lookAroundLoopAnimation.Animation, true, 0.0f);
@@ -116,6 +132,20 @@ public class LibrarianController : MonoBehaviour {
         }, this.GetCancellationTokenOnDestroy());
     }
 
+    private void PlayWalkAnimation() {
+        if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundEndAnimation.Animation) {
+            _skeleton.AnimationState.SetAnimation(0, _lookAroundEndAnimation.Animation, false);
+            _skeleton.AnimationState.AddAnimation(0, _walk.Animation, true, 0.0f);
+        }
+    }
+
+    private void PlayHuntAnimation() {
+        if (_skeleton.AnimationState.Tracks.Items[0].Animation != _huntStartAnimation.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _huntloopAnimation.Animation) {
+            _skeleton.AnimationState.SetAnimation(0, _huntStartAnimation.Animation, false);
+            _skeleton.AnimationState.AddAnimation(0, _huntloopAnimation.Animation, true, 0.0f);
+        }
+    }
+    
     private void HandleEvent(TrackEntry trackEntry, Event e) {
         if (string.CompareOrdinal(e.Data.Name, "sound") != 0) {
             return;
@@ -128,7 +158,7 @@ public class LibrarianController : MonoBehaviour {
     private async UniTaskVoid GetPath() {
         _path = await GetPathAsync();
         targetWaypointIndex = 1;
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: this.GetCancellationTokenOnDestroy());
         GetPath().Forget();
     }
 
@@ -142,7 +172,7 @@ public class LibrarianController : MonoBehaviour {
         if (_targetPlayer != null) {
             targetPosition = _targetPlayer.position;
         } else if (_targetSound != null) {
-            targetPosition = _targetSound.position;
+            targetPosition = _targetSound.Value;
         }
         
         _seeker.StartPath(transform.position, targetPosition, OnCalculatePath);
@@ -150,17 +180,28 @@ public class LibrarianController : MonoBehaviour {
     }
 
     public void SetPlayerTarget(Transform target) {
+        if (_gameEnded) {
+            return;
+        }
         _hunting.Value = 1.0f;
         _targetPlayer = target;
     }
 
     public void SetTarget(Transform target) {
+        if (_gameEnded) {
+            return;
+        }
+        
         _hunting.Value = Mathf.Clamp01(_hunting.Value + 0.1f);
         if (_hunting.Value > 0.5f) {
             _targetPlayer = _player;
         }
-        else {
-            _targetSound = target;
+
+        _targetSound = target.position;
+        if (MarketInstance != null) {
+            Destroy(MarketInstance);
         }
+
+        MarketInstance = Instantiate(_markerPrefab, target.position, quaternion.identity);
     }
 }
