@@ -326,6 +326,8 @@ MonoBehaviour:
   _speedMultiplierHunting: 1.9
   _huntingDiminishing: 0.05
   _speed: 350
+  _onLose: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
+  _onWin: {fileID: 11400000, guid: c267bc75771d444b69d5d5b82b547776, type: 2}
 --- !u!50 &5302510765560605763
 Rigidbody2D:
   serializedVersion: 4

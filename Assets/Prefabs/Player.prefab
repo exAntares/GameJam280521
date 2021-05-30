@@ -2041,6 +2041,8 @@ MonoBehaviour:
   _runningAreaPrefab: {fileID: 1130222405509127280, guid: 09bfaf7a37bc44baeb4397fbf613615b, type: 3}
   _rigidbody2D: {fileID: 1802692937244865808}
   _speed: 350
+  _onLose: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
+  _onWin: {fileID: 11400000, guid: c267bc75771d444b69d5d5b82b547776, type: 2}
 --- !u!70 &1038551285827439393
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

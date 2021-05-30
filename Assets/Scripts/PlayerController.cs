@@ -1,3 +1,4 @@
+using HalfBlind.ScriptableVariables;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -5,8 +6,31 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private SoundArea _runningAreaPrefab;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed = 1.0f;
+    [SerializeField] private ScriptableGameEvent _onLose;
+    [SerializeField] private ScriptableGameEvent _onWin;
+    
     private float _instantiateCooldown = 0;
+    private bool _canMove = true;
+
+
+    private void Awake() {
+        _onLose.AddListener(OnLose);
+        _onWin.AddListener(OnWin);
+    }
+
+    private void OnWin() {
+        _canMove = false;
+    }
+
+    private void OnLose() {
+        _canMove = false;
+    }
+
     private void Update() {
+        if (!_canMove) {
+            return;
+        }
+        
         var isMoving = false;
         var speedMultiplier = 1.0f;
         var direction = Vector2.zero;
