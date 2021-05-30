@@ -1,0 +1,20 @@
+
+door.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+door
+  rotate: true
+  xy: 2, 2
+  size: 489, 777
+  orig: 489, 777
+  offset: 0, 0
+  index: -1
+door_knob
+  rotate: false
+  xy: 781, 440
+  size: 46, 51
+  orig: 48, 54
+  offset: 1, 2
+  index: -1
