@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreamSoundArea_Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7053947853852219237, guid: 09bfaf7a37bc44baeb4397fbf613615b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8301053140580854783, guid: 09bfaf7a37bc44baeb4397fbf613615b, type: 3}
       propertyPath: m_Radius
       value: 5
