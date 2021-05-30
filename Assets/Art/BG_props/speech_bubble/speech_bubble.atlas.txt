@@ -1,0 +1,48 @@
+
+speech_bubble.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+H1
+  rotate: false
+  xy: 1095, 53
+  size: 134, 168
+  orig: 137, 171
+  offset: 2, 2
+  index: -1
+H2
+  rotate: false
+  xy: 1231, 67
+  size: 134, 154
+  orig: 136, 155
+  offset: 1, 1
+  index: -1
+H3
+  rotate: true
+  xy: 2, 2
+  size: 106, 141
+  orig: 108, 143
+  offset: 1, 1
+  index: -1
+S
+  rotate: false
+  xy: 1095, 223
+  size: 190, 268
+  orig: 193, 270
+  offset: 2, 1
+  index: -1
+exclm_mark
+  rotate: true
+  xy: 145, 66
+  size: 42, 146
+  orig: 45, 148
+  offset: 2, 1
+  index: -1
+speech_bubble
+  rotate: false
+  xy: 2, 110
+  size: 1091, 381
+  orig: 1091, 381
+  offset: 0, 0
+  index: -1
