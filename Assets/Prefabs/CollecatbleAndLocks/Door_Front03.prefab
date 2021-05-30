@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3704595018188014530
+--- !u!1001 &712082149053791678
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,11 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 503809483623707947, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_Name
-      value: DoorSoundsAndScript
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197574575263891313, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
-      propertyPath: _data._objectReferences.Array.data[4]
-      value: 
+      value: Door_Front03
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_RootOrder
@@ -21,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.636303
+      value: -4.007
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9432774
+      value: -10.173
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.075434715
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2394160608130248119, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62,6 +58,26 @@ PrefabInstance:
     - target: {fileID: 2629424660664867614, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4285628398728843093, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4574611706942863591, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695439050978650455, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.236
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695439050978650455, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730198837180361097, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffcdeb2ad3b622844ba2fac0cec363ef, type: 3}
