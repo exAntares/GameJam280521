@@ -75,7 +75,7 @@ public class LibrarianController : MonoBehaviour {
             if (_targetPlayer != null) {
                 speedMultipler = _speedMultiplierHunting;
                 var distanceToPlayer = Vector3.Distance(transform.position, _targetPlayer.position);
-                if (distanceToPlayer <= 1.0f) {
+                if (distanceToPlayer <= 1.4f) {
                     _skeleton.AnimationState.SetAnimation(0, _lookAroundLoopAnimation.Animation, true);
                     Debug.Log("Player Lost!!!");
                     _hunting.Value = 0;
