@@ -6,17 +6,17 @@ filter: Linear,Linear
 repeat: none
 candle
   rotate: false
-  xy: 1245, 278
-  size: 125, 232
+  xy: 1245, 272
+  size: 129, 238
   orig: 129, 238
-  offset: 2, 3
+  offset: 0, 0
   index: -1
 candle_flame
   rotate: true
-  xy: 676, 142
-  size: 31, 56
+  xy: 676, 137
+  size: 36, 61
   orig: 36, 61
-  offset: 3, 3
+  offset: 0, 0
   index: -1
 candle_glow
   rotate: true
@@ -34,7 +34,7 @@ kid_armL1
   index: -1
 kid_armL2
   rotate: true
-  xy: 1008, 9
+  xy: 1035, 9
   size: 194, 137
   orig: 196, 139
   offset: 0, 2
@@ -54,15 +54,15 @@ kid_armR2
   offset: 0, 0
   index: -1
 kid_eyeL
-  rotate: true
-  xy: 1372, 278
+  rotate: false
+  xy: 1376, 272
   size: 103, 109
   orig: 107, 113
   offset: 2, 2
   index: -1
 kid_eyeR
   rotate: true
-  xy: 1471, 395
+  xy: 1475, 395
   size: 115, 107
   orig: 119, 111
   offset: 2, 2
@@ -103,15 +103,15 @@ kid_hairsF
   offset: 0, 0
   index: -1
 kid_handR
-  rotate: true
-  xy: 1354, 4
+  rotate: false
+  xy: 1481, 295
   size: 83, 98
   orig: 83, 98
   offset: 0, 0
   index: -1
 kid_hips
   rotate: true
-  xy: 1372, 383
+  xy: 1376, 383
   size: 127, 97
   orig: 127, 97
   offset: 0, 0
@@ -131,43 +131,43 @@ kid_legR
   offset: 0, 0
   index: -1
 kid_mouth1
-  rotate: true
-  xy: 1147, 5
+  rotate: false
+  xy: 676, 99
   size: 54, 36
   orig: 59, 40
   offset: 2, 2
   index: -1
 kid_nose
   rotate: true
-  xy: 955, 177
+  xy: 987, 177
   size: 26, 46
   orig: 30, 51
   offset: 2, 3
   index: -1
 kid_pupil
-  rotate: false
-  xy: 1185, 41
+  rotate: true
+  xy: 1008, 158
   size: 17, 18
   orig: 21, 22
   offset: 2, 2
   index: -1
 kid_shirt_sleeveL
   rotate: false
-  xy: 1251, 74
+  xy: 1278, 68
   size: 101, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 kid_shirt_sleeveR
   rotate: false
-  xy: 1147, 61
+  xy: 1174, 61
   size: 102, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 kid_thumbL
   rotate: false
-  xy: 676, 99
+  xy: 1174, 18
   size: 39, 41
   orig: 41, 43
   offset: 2, 2
@@ -181,21 +181,21 @@ kid_torso
   index: -1
 shadow
   rotate: false
-  xy: 1245, 218
+  xy: 1245, 212
   size: 135, 58
   orig: 139, 58
   offset: 2, 0
   index: -1
 shoe
   rotate: true
-  xy: 1354, 89
+  xy: 1381, 83
   size: 127, 121
   orig: 127, 122
   offset: 0, 1
   index: -1
 shoe_lace
-  rotate: false
-  xy: 717, 110
+  rotate: true
+  xy: 955, 175
   size: 28, 30
   orig: 32, 37
   offset: 2, 5
