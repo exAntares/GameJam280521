@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: _data._objectReferences.Array.data[1]
       value: 
       objectReference: {fileID: 2153563205288943167}
+    - target: {fileID: 2591819599689546931, guid: d6de68f1059c9924e9b0dc248c2bcd8d, type: 3}
+      propertyPath: _data._objectReferences.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1658020d4741f3f45a0a300e68eb40ec, type: 2}
     - target: {fileID: 3860914760742237929, guid: d6de68f1059c9924e9b0dc248c2bcd8d, type: 3}
       propertyPath: m_Name
       value: DoorSoundsAndScript
