@@ -22,6 +22,7 @@ MonoBehaviour:
   _whenMultipleSameSound: 0
   _minDistance: 5
   _maxDistance: 50
+  _skipProbability: 0.25
   _variationsProvider:
     id: 0
   references:
