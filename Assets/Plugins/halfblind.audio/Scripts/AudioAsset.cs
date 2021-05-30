@@ -22,6 +22,9 @@ namespace HalfBlind.Audio {
         [SerializeField] private float _spatialBlend;
         [SerializeField] private AudioMixerGroup _group = null;
         [SerializeField] private PlayPolicy _whenMultipleSameSound = PlayPolicy.PlayAgain;
+        [SerializeField] private float _minDistance = 1.0f;
+        [SerializeField] private float _maxDistance = 100.0f;
+        
         [SerializeReference, ShowInInspector] private IAudioAssetVariationsProvider _variationsProvider = new SequenceProvider();
         
         public PlayPolicy WhenMultipleSameSound => _whenMultipleSameSound;
@@ -37,6 +40,8 @@ namespace HalfBlind.Audio {
             source.volume = _volume;
             source.outputAudioMixerGroup = _group;
             source.spatialBlend = _spatialBlend;
+            source.minDistance = _minDistance;
+            source.maxDistance = _maxDistance;
         }
         
 #if UNITY_EDITOR
