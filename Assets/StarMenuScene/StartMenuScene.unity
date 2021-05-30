@@ -1125,7 +1125,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: 
+  _animationName: look_around_loop
   loop: 1
   timeScale: 0
 --- !u!23 &1241086682
