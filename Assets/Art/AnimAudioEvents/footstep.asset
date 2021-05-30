@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0055bc227565e3240bd28181bd417c9f, type: 3}
   m_Name: footstep
   m_EditorClassIdentifier: 
-  _variations: []
+  _variations:
+  - {fileID: 8300000, guid: 61702fa4be5973048afce15f86667c73, type: 3}
   _volume: 1
-  _pitchMinMax: {x: 1, y: 1}
-  _spatialBlend: 0
+  _pitchMinMax: {x: 0.6, y: 1}
+  _spatialBlend: 1
   _group: {fileID: 0}
   _whenMultipleSameSound: 0
   _variationsProvider:
