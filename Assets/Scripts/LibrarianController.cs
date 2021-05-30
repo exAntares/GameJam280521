@@ -91,7 +91,7 @@ public class LibrarianController : MonoBehaviour {
                     var position = transform.position;
                     var distance = target - position;
                     var distanceToTarget = Vector3.Distance(position, target);
-                    if (distanceToTarget <= 0.1f) {
+                    if (distanceToTarget <= 0.3f) {
                         targetWaypointIndex++;
                         return;
                     }
