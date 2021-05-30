@@ -1,4 +1,5 @@
 using HalfBlind.ScriptableVariables;
+using Spine.Unity;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -8,10 +9,13 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float _speed = 1.0f;
     [SerializeField] private ScriptableGameEvent _onLose;
     [SerializeField] private ScriptableGameEvent _onWin;
-    
+    [SerializeField] private AnimationReferenceAsset _idleAnimationReferenceAsset;
+    [SerializeField] private AnimationReferenceAsset _walkAnimationReferenceAsset;
+    [SerializeField] private AnimationReferenceAsset _runAnimationReferenceAsset;
+    [SerializeField] private SkeletonAnimation _skeleton;
+
     private float _instantiateCooldown = 0;
     private bool _canMove = true;
-
 
     private void Awake() {
         _onLose.AddListener(OnLose);
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (isMoving) {
+            SetAnimation(_skeleton.AnimationState, speedMultiplier > 1 ? _runAnimationReferenceAsset : _walkAnimationReferenceAsset, true);
             var force = direction * (_speed * speedMultiplier * Time.deltaTime);
             if (force.x > 0) {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -74,6 +79,15 @@ public class PlayerController : MonoBehaviour {
             }
             
             _rigidbody2D.AddForce(force);
+        }
+        else {
+            SetAnimation(_skeleton.AnimationState, _idleAnimationReferenceAsset, true);
+        }
+    }
+
+    private static void SetAnimation(Spine.AnimationState animationState, AnimationReferenceAsset animation, bool loop) {
+        if (animationState.Tracks.Items[0].Animation != animation.Animation) {
+            animationState.SetAnimation(0, animation.Animation, loop);
         }
     }
 }
