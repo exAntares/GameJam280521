@@ -583,10 +583,9 @@ MonoBehaviour:
   _hunting: {fileID: 11400000, guid: 550d7b96017bb472bb6731196979ed62, type: 2}
   _speedMultiplierHunting: 1.9
   _huntingDiminishing: 0.05
-  _speed: 350
+  _speed: 375
   _onLose: {fileID: 11400000, guid: 2284b2566545141348ce4b9e0825df56, type: 2}
   _onWin: {fileID: 11400000, guid: c267bc75771d444b69d5d5b82b547776, type: 2}
-  _gameOverCanvasPrefab: {fileID: 2122531619753796016, guid: cfc4b3158edb54740912c94122db4795, type: 3}
   _markerPrefab: {fileID: 3104130509292714819, guid: 24675d5adbc204c209e6de4067f9e2ba, type: 3}
 --- !u!50 &5302510765560605763
 Rigidbody2D:

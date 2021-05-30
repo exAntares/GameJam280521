@@ -84,6 +84,10 @@ public class LibrarianController : MonoBehaviour {
                     return;
                 }
             }
+
+            if (_targetSound != null) {
+                speedMultipler = _speedMultiplierHunting;
+            }
             
             if (_path != null && !_path.error) {
                 if (targetWaypointIndex < _path.vectorPath.Count) {
@@ -91,7 +95,7 @@ public class LibrarianController : MonoBehaviour {
                     var position = transform.position;
                     var distance = target - position;
                     var distanceToTarget = Vector3.Distance(position, target);
-                    if (distanceToTarget <= 0.3f) {
+                    if (distanceToTarget <= 0.4f) {
                         targetWaypointIndex++;
                         return;
                     }
