@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         _panicAttackDuration -= Time.deltaTime;
         var isInPanic = _panicAttackDuration > 0;
         _skeleton.skeleton.SetSkin(isInPanic ? "panic_attack" : "normal");
+        _skeleton.skeleton.SetSlotsToSetupPose();
         var isMoving = false;
         var speedMultiplier = 1.0f;
         var direction = Vector2.zero;
