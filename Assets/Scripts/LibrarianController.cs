@@ -5,8 +5,10 @@ using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Linq;
 using HalfBlind.ScriptableVariables;
 using Pathfinding;
+using Spine;
 using Spine.Unity;
 using UnityEngine;
+using Event = Spine.Event;
 
 public class LibrarianController : MonoBehaviour {
     [SerializeField] private Path _path;
@@ -34,6 +36,8 @@ public class LibrarianController : MonoBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
+        // The method needs the correct signature.
+        _skeleton.AnimationState.Event += HandleEvent;
         _player = FindObjectOfType<PlayerController>().transform;
         _targetPosition = transform.position;
         GetPath().Forget();
@@ -58,7 +62,7 @@ public class LibrarianController : MonoBehaviour {
                     }
 
                     if (_skeleton.AnimationState.Tracks.Items[0].Animation != _walk.Animation && _skeleton.AnimationState.Tracks.Items[0].Animation != _lookAroundEndAnimation.Animation) {
-                        _skeleton.AnimationState.SetAnimation(0, _lookAroundEndAnimation.Animation, false);
+                        var trackEntry = _skeleton.AnimationState.SetAnimation(0, _lookAroundEndAnimation.Animation, false);
                         _skeleton.AnimationState.AddAnimation(0, _walk.Animation, true, _lookAroundEndAnimation.Animation.Duration);
                     }
                     var directionNormalized = distance.normalized;
@@ -82,6 +86,15 @@ public class LibrarianController : MonoBehaviour {
                 }
             }
         }, this.GetCancellationTokenOnDestroy());
+    }
+
+    private void HandleEvent(TrackEntry trackEntry, Event e) {
+        if (string.CompareOrdinal(e.Data.Name, "sound") != 0) {
+            return;
+        }
+        if (!AudioContainer.Instance.PlayAudio(e.String, transform.position)) {
+            Debug.LogWarning($"Failed to play sound on track {trackEntry.Animation.Name} '{e.String}'");
+        }
     }
 
     private async UniTaskVoid GetPath() {
