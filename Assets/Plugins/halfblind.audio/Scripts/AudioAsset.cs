@@ -24,6 +24,7 @@ namespace HalfBlind.Audio {
         [SerializeField] private PlayPolicy _whenMultipleSameSound = PlayPolicy.PlayAgain;
         [SerializeField] private float _minDistance = 1.0f;
         [SerializeField] private float _maxDistance = 100.0f;
+        [SerializeField, Range(0, 1)] private float _skipProbability = 0.0f;
         
         [SerializeReference, ShowInInspector] private IAudioAssetVariationsProvider _variationsProvider = new SequenceProvider();
         
@@ -42,6 +43,10 @@ namespace HalfBlind.Audio {
             source.spatialBlend = _spatialBlend;
             source.minDistance = _minDistance;
             source.maxDistance = _maxDistance;
+        }
+
+        public bool ShouldSkip() {
+            return Random.Range(0.0f, 1.0f) < _skipProbability;
         }
         
 #if UNITY_EDITOR

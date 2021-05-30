@@ -3,6 +3,10 @@ using UnityEngine;
 namespace HalfBlind.Audio {
     public static class AudioAssetUtils {
         public static void PlayClipAtPoint(this AudioAsset asset, Vector3 position) {
+            if (asset.ShouldSkip()) {
+                return;
+            }
+            
             var gameObject = new GameObject("One shot audio");
             var audioSource = (AudioSource) gameObject.AddComponent(typeof (AudioSource));
             gameObject.transform.position = position;

@@ -15,8 +15,10 @@ namespace HalfBlind.Audio {
         private void Reset() => _source = GetComponentInChildren<AudioSource>();
 
         public void Play() {
-            _asset.ApplyToAudioSource(_source);
-            _source.Play();
+            if (!_asset.ShouldSkip()) {
+                _asset.ApplyToAudioSource(_source);
+                _source.Play();                
+            }
         }
     }
 }
