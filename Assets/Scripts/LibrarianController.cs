@@ -7,6 +7,7 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 using Event = Spine.Event;
+using Object = UnityEngine.Object;
 
 public class LibrarianController : MonoBehaviour {
     [SerializeField] private Path _path;
@@ -26,6 +27,7 @@ public class LibrarianController : MonoBehaviour {
 
     [SerializeField] private ScriptableGameEvent _onLose;
     [SerializeField] private ScriptableGameEvent _onWin;
+    [SerializeField] private GameObject _gameOverCanvasPrefab;
     
     private Vector3 _targetPosition;
     private int targetWaypointIndex = 1;
@@ -73,6 +75,7 @@ public class LibrarianController : MonoBehaviour {
                     _skeleton.AnimationState.SetAnimation(0, _lookAroundLoopAnimation.Animation, true);
                     Debug.Log("Player Lost!!!");
                     _onLose.SendEvent();
+                    Instantiate(_gameOverCanvasPrefab);
                     return;
                 }
             }
