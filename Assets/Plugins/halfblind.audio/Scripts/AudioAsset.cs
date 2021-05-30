@@ -19,7 +19,7 @@ namespace HalfBlind.Audio {
 #else
         [InfoBox("Sets how much this AudioSource is affected by 3D spatialisation calculations (attenuation, doppler etc). 0.0 makes the sound full 2D, 1.0 makes it full 3D.")]
 #endif
-        [SerializeField] private float _spatialBlend;
+        [SerializeField, Range(0, 1)] private float _spatialBlend;
         [SerializeField] private AudioMixerGroup _group = null;
         [SerializeField] private PlayPolicy _whenMultipleSameSound = PlayPolicy.PlayAgain;
         [SerializeField] private float _minDistance = 1.0f;
