@@ -1638,8 +1638,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\nLUIS ANDR\xC9S ROJAS JIMENEZ\n<i>Programmer</i>\n\nLUDOVICA \n<i>Animator
-    and main artist</i>\n\nORIANA LAPLANA CURTIDO\n<i>Game designer and sound designer</i>\n"
+  m_Text: "MARTA VIADER\n<i>UI Artist</i>\n\nLUIS ANDR\xC9S ROJAS \n<i>Programmer</i>\n\nLUDOVICA
+    CORATZA\n<i>Animator and main artist</i>\n\nORIANA LAPLANA\n<i>Game designer
+    and sound designer</i>\n"
 --- !u!222 &1834249706
 CanvasRenderer:
   m_ObjectHideFlags: 0
