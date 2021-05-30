@@ -6,21 +6,21 @@ filter: Linear,Linear
 repeat: none
 candle
   rotate: false
-  xy: 1237, 278
+  xy: 1245, 278
   size: 125, 232
   orig: 129, 238
   offset: 2, 3
   index: -1
 candle_flame
   rotate: true
-  xy: 974, 5
+  xy: 676, 142
   size: 31, 56
   orig: 36, 61
   offset: 3, 3
   index: -1
 candle_glow
   rotate: true
-  xy: 713, 9
+  xy: 747, 9
   size: 164, 155
   orig: 173, 163
   offset: 4, 5
@@ -34,49 +34,49 @@ kid_armL1
   index: -1
 kid_armL2
   rotate: true
-  xy: 1048, 13
+  xy: 1008, 9
   size: 194, 137
   orig: 196, 139
   offset: 0, 2
   index: -1
 kid_armR1
   rotate: false
-  xy: 870, 19
+  xy: 904, 19
   size: 102, 154
   orig: 104, 155
   offset: 2, 1
   index: -1
 kid_armR2
   rotate: true
-  xy: 160, 2
+  xy: 588, 6
   size: 91, 157
   orig: 92, 157
   offset: 0, 0
   index: -1
 kid_eyeL
   rotate: true
-  xy: 1364, 278
+  xy: 1372, 278
   size: 103, 109
   orig: 107, 113
   offset: 2, 2
   index: -1
 kid_eyeR
   rotate: true
-  xy: 1463, 395
+  xy: 1471, 395
   size: 115, 107
   orig: 119, 111
   offset: 2, 2
   index: -1
 kid_eye_brow
-  rotate: false
-  xy: 951, 175
+  rotate: true
+  xy: 554, 2
   size: 95, 32
   orig: 99, 36
   offset: 2, 2
   index: -1
 kid_face
   rotate: true
-  xy: 672, 175
+  xy: 676, 175
   size: 335, 277
   orig: 340, 281
   offset: 3, 2
@@ -90,84 +90,84 @@ kid_fingersL
   index: -1
 kid_hairsB
   rotate: true
-  xy: 951, 209
-  size: 301, 284
+  xy: 955, 205
+  size: 305, 288
   orig: 305, 288
-  offset: 2, 2
+  offset: 0, 0
   index: -1
 kid_hairsF
   rotate: true
-  xy: 151, 95
-  size: 415, 397
+  xy: 151, 90
+  size: 420, 401
   orig: 420, 401
-  offset: 2, 2
+  offset: 0, 0
   index: -1
 kid_handR
-  rotate: false
-  xy: 1394, 178
+  rotate: true
+  xy: 1354, 4
   size: 83, 98
   orig: 83, 98
   offset: 0, 0
   index: -1
 kid_hips
   rotate: true
-  xy: 1364, 383
+  xy: 1372, 383
   size: 127, 97
   orig: 127, 97
   offset: 0, 0
   index: -1
 kid_legL
   rotate: true
-  xy: 319, 7
+  xy: 160, 2
   size: 86, 392
   orig: 88, 393
   offset: 0, 0
   index: -1
 kid_legR
   rotate: false
-  xy: 550, 99
+  xy: 554, 99
   size: 120, 411
   orig: 120, 411
   offset: 0, 0
   index: -1
 kid_mouth1
   rotate: true
-  xy: 1187, 9
+  xy: 1147, 5
   size: 54, 36
   orig: 59, 40
   offset: 2, 2
   index: -1
 kid_nose
-  rotate: false
-  xy: 1225, 17
+  rotate: true
+  xy: 955, 177
   size: 26, 46
   orig: 30, 51
   offset: 2, 3
   index: -1
 kid_pupil
   rotate: false
-  xy: 1253, 45
+  xy: 1185, 41
   size: 17, 18
   orig: 21, 22
   offset: 2, 2
   index: -1
 kid_shirt_sleeveL
   rotate: false
-  xy: 1291, 134
+  xy: 1251, 74
   size: 101, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 kid_shirt_sleeveR
   rotate: false
-  xy: 1187, 65
+  xy: 1147, 61
   size: 102, 142
   orig: 102, 142
   offset: 0, 0
   index: -1
 kid_thumbL
   rotate: false
-  xy: 672, 132
+  xy: 676, 99
   size: 39, 41
   orig: 41, 43
   offset: 2, 2
@@ -180,22 +180,22 @@ kid_torso
   offset: 0, 1
   index: -1
 shadow
-  rotate: true
-  xy: 974, 38
+  rotate: false
+  xy: 1245, 218
   size: 135, 58
   orig: 139, 58
   offset: 2, 0
   index: -1
 shoe
   rotate: true
-  xy: 1291, 5
+  xy: 1354, 89
   size: 127, 121
   orig: 127, 122
   offset: 0, 1
   index: -1
 shoe_lace
   rotate: false
-  xy: 672, 100
+  xy: 717, 110
   size: 28, 30
   orig: 32, 37
   offset: 2, 5
