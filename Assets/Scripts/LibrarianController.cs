@@ -71,6 +71,9 @@ public class LibrarianController : MonoBehaviour {
             if (_hunting.Value <= 0.5f) {
                 _targetPlayer = null;
             }
+            else {
+                _targetPlayer = _player;
+            }
 
             if (_targetPlayer != null) {
                 speedMultipler = _speedMultiplierHunting;
@@ -194,9 +197,6 @@ public class LibrarianController : MonoBehaviour {
         }
         
         _hunting.Value = Mathf.Clamp01(_hunting.Value + 0.1f);
-        if (_hunting.Value > 0.5f) {
-            _targetPlayer = _player;
-        }
 
         _targetSound = target.position;
         if (MarketInstance != null) {
