@@ -40,7 +40,7 @@ AudioSource:
   m_GameObject: {fileID: 887711266871107318}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 87cf145ca081283418947fcc8244e991, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6527a14173f8521449494785f215cac3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -136,7 +136,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 490970518070319098}
-  - component: {fileID: 994689220602527876}
   m_Layer: 7
   m_Name: BaseCollectableItem
   m_TagString: Untagged
@@ -155,39 +154,13 @@ Transform:
   m_LocalPosition: {x: 1.98, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 470115921453479684}
+  - {fileID: 6783883583278332141}
   - {fileID: 8816115579362630904}
   - {fileID: 6685588880933163809}
   - {fileID: 7413489950881700485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &994689220602527876
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916378964074586796}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.026277542, y: -0.8357825}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.2803, y: 2.6249819}
-  m_EdgeRadius: 0
 --- !u!1 &4690347034941542175
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,9 +208,9 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Collectable","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"HasKey","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Collider","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"CollectAudio","value":{"$content":3,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
-    - {fileID: 916378964074586796}
+    - {fileID: 7284740839242263568}
     - {fileID: 11400000, guid: 1658020d4741f3f45a0a300e68eb40ec, type: 2}
-    - {fileID: 994689220602527876}
+    - {fileID: 799500585817389204}
     - {fileID: 887711266871107318}
 --- !u!114 &1154557961080426414
 MonoBehaviour:
@@ -351,6 +324,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7284740839242263568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6783883583278332141}
+  - component: {fileID: 799500585817389204}
+  m_Layer: 7
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6783883583278332141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284740839242263568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 470115921453479684}
+  m_Father: {fileID: 490970518070319098}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &799500585817389204
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284740839242263568}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.026277542, y: -0.8357825}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.2803, y: 2.6249819}
+  m_EdgeRadius: 0
 --- !u!1 &8286774513952914078
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,11 +406,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8286774513952914078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.126, y: -0.0033, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12600005, y: -0.0032999516, z: 0}
   m_LocalScale: {x: 0.617986, y: 0.617986, z: 0.617986}
   m_Children: []
-  m_Father: {fileID: 490970518070319098}
+  m_Father: {fileID: 6783883583278332141}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7081550570489124581
