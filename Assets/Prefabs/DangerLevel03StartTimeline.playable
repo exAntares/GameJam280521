@@ -31844,8 +31844,6 @@ MonoBehaviour:
   - {fileID: 4127489593255210773}
   - {fileID: -422364853148819083}
   - {fileID: -5082337079810458108}
-  - {fileID: 6972156375494673270}
-  - {fileID: 4048190248911960785}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
